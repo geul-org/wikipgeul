@@ -1,5 +1,5 @@
 //ff:func feature=cli type=command control=sequence
-//ff:what runOrder — wikipgeul build-reference-order: records (or with -dry-run counts) each reference occurrence whose snak order differs from reference_snak, from entity_raw; stops cleanly on interrupt
+//ff:what runOrder — wikipg build-reference-order: records (or with -dry-run counts) each reference occurrence whose snak order differs from reference_snak, from entity_raw; stops cleanly on interrupt
 package main
 
 // runOrder parses args (parseRepairFlags: the same range, batch and pace
@@ -8,7 +8,7 @@ package main
 // reference occurrence whose snaks are those of reference_snak in another
 // order; reference_snak and the other tables are only read.
 func runOrder(args []string) error {
-	f, err := parseRepairFlags("wikipgeul build-reference-order", args)
+	f, err := parseRepairFlags("wikipg build-reference-order", args)
 	if err != nil {
 		return err
 	}

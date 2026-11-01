@@ -23,7 +23,7 @@
 
 ## 출현별 순서: `reference_snak_order`
 
-같은 hash를 다른 순서로 쓴 출현의 원문 순서는 `reference_snak_order`([`sql/reference_snak_order.sql`](../sql/reference_snak_order.sql))가 둔다. `wikipgeul build-reference-order`가 `entity_raw`에서 만든다. 덤프 파일은 다시 읽지 않는다.
+같은 hash를 다른 순서로 쓴 출현의 원문 순서는 `reference_snak_order`([`sql/reference_snak_order.sql`](../sql/reference_snak_order.sql))가 둔다. `wikipg build-reference-order`가 `entity_raw`에서 만든다. 덤프 파일은 다시 읽지 않는다.
 
 - **표** `reference_snak_order(statement_id, ordinal, perm smallint[])`, PK `(statement_id, ordinal)`. 키는 `statement_reference`와 같다. 출현 하나 = 그 표의 한 행이다.
 - `dump_id` 열이 없다. `statement_id`에 판이 들어 있다.
@@ -34,8 +34,8 @@
 - 적재기 안에서 만들지 않는 이유: 어느 출현이 첫 출현인지는 4.2를 마쳐야 정해지고, 적재 중에 모든 출현의 순서를 남기려면 `statement_reference` 규모의 스테이징이 든다. 도구는 적재기의 행 만들기(`load.Rows.AddEntity`)를 그대로 쓰므로 순서 규칙이 같다.
 
 ```sh
-GOMEMLIMIT=2GiB wikipgeul build-reference-order -dry-run -entities Q1-Q10000 -workers 4   # 세기만
-GOMEMLIMIT=2GiB wikipgeul build-reference-order -workers 8 -status 60s                   # 전 구간 쓰기, 같은 명령으로 재개
+GOMEMLIMIT=2GiB wikipg build-reference-order -dry-run -entities Q1-Q10000 -workers 4   # 세기만
+GOMEMLIMIT=2GiB wikipg build-reference-order -workers 8 -status 60s                   # 전 구간 쓰기, 같은 명령으로 재개
 ```
 
 - `entity_raw`를 줄 순서로 배치마다 읽는다(작업자 병렬, 적용은 줄 순서). 출현마다 적재기와 같은 행을 만들어 `reference_snak`과 비교하고(same·order·content·missing), order인 출현의 순열을 쓴다.
@@ -47,9 +47,9 @@ GOMEMLIMIT=2GiB wikipgeul build-reference-order -workers 8 -status 60s          
 출현 규칙이 생기기 전에 4.2를 거친 DB(번호마다 따로 고른 `DISTINCT ON (hash, dump_id, ordinal)`로 출현이 섞였을 수 있는 DB)를 고친다.
 
 ```sh
-wikipgeul repair-reference-snak -dry-run -entities Q1-Q10000      # 비교만(읽기 전용 세션), 보고
-wikipgeul repair-reference-snak                                    # 전 구간 쓰기, 중단 뒤 같은 명령으로 재개
-wikipgeul repair-reference-snak -from-line 2 -to-line 1000000 -batch 1000 -workers 9 -pause 0 -status 30s
+wikipg repair-reference-snak -dry-run -entities Q1-Q10000      # 비교만(읽기 전용 세션), 보고
+wikipg repair-reference-snak                                    # 전 구간 쓰기, 중단 뒤 같은 명령으로 재개
+wikipg repair-reference-snak -from-line 2 -to-line 1000000 -batch 1000 -workers 9 -pause 0 -status 30s
 ```
 
 - `entity_raw`를 줄 순서로 배치마다 읽어 출현마다 적재기와 같은 행을 만들고, hash마다 범위 안 첫 출현의 목록을 DB와 비교해 다르면 그 hash의 행을 트랜잭션 안에서 바꾼다. 같은 패스에서 `statement_reference`를 원본과 비교해 차이를 보고만 한다.

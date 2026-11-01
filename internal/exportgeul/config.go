@@ -4,7 +4,7 @@ package exportgeul
 
 import "github.com/geul-org/wikigeul/pkg/pipeline"
 
-// config is one wikipgeul export-geul run: the shared run settings (Schema and
+// config is one wikipg export-geul run: the shared run settings (Schema and
 // Dump name the loaded dump, sql/wikidata.sql), the PostgreSQL DSN (empty:
 // lib/pq reads the PG* environment variables) and Out, "pack" (default: the
 // Issuer's pack set under Root written as one stream, runPack) or "dir" (the

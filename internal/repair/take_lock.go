@@ -10,7 +10,7 @@ import (
 // lockKey names the advisory lock of writing runs (with the schema). Repairs
 // and order builds share it: an order build reads the reference_snak rows a
 // repair replaces, so the two never write at once.
-const lockKey = "wikipgeul repair-reference-snak"
+const lockKey = "wikipg repair-reference-snak"
 
 // takeLock takes the session advisory lock of the repair of c.Schema on a
 // connection it keeps (released by releaseLock, or when the process ends). Another

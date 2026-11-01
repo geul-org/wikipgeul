@@ -1,9 +1,9 @@
 # export-geul: 적재본 → GEUL
 
-`wikipgeul export-geul`은 wikipgeul가 적재한 스키마(기본 `wikidata`)를 읽어 위키데이터 개체를 GEUL 문서로 옮긴다. DB는 읽기만 한다.
+`wikipg export-geul`은 wikipgeul가 적재한 스키마(기본 `wikidata`)를 읽어 위키데이터 개체를 GEUL 문서로 옮긴다. DB는 읽기만 한다.
 
 ```sh
-wikipgeul export-geul -root ./archive -from 1 -to 200000000 \
+wikipg export-geul -root ./archive -from 1 -to 200000000 \
   -commit <wikigeul 커밋> -lib-commit <gogeul 커밋> -report report.tsv
 ```
 
@@ -21,6 +21,7 @@ wikipgeul export-geul -root ./archive -from 1 -to 200000000 \
 
 - `-workers` 기본값은 CPU 70%의 절반이다. 작업자마다 PostgreSQL 백엔드 하나가 거의 같은 만큼 바쁘다.
 - 엄격 모드가 이상점에서 멈추면 종료 코드 3이다.
+- pack 모드는 메모리 감시를 받는다(`-mem-…`, wikigeul [docs/memory.md](https://github.com/geul-org/wikigeul/blob/main/docs/memory.md)). 위험에서 체크포인트를 저장하고 멈추면 종료 코드 4이고, 표준 오류의 `resume:` 줄을 그대로 돌리면 이어진다.
 
 ## 디렉터리 모드 (`-out dir`)
 
@@ -38,7 +39,7 @@ DB 없이 덤프 파일을 바로 읽는 경로에서 각 열을 덤프 JSON의 
 | `statement` | `statement_id`, `property`, `rank`, `snaktype`, `value_type`, `value`(jsonb), `value_entity` |
 | `qualifier` | `statement_id`, `ordinal`(qualifiers-order), `property`, `snaktype`, `value_type`, `value`, `value_entity` |
 | `statement_reference`, `reference_snak` | 출처: statement의 출처 순서·hash, 출처 항목(속성, 값 열은 qualifier와 같다) |
-| `reference_snak_order` (있으면) | 출현별 출처 항목 순서: `(statement_id, ordinal)` → `perm`(wikipgeul `build-reference-order`). 표가 없거나 그 출현에 행이 없으면 `reference_snak.ordinal` 순서 |
+| `reference_snak_order` (있으면) | 출현별 출처 항목 순서: `(statement_id, ordinal)` → `perm`(wikipg `build-reference-order`). 표가 없거나 그 출현에 행이 없으면 `reference_snak.ordinal` 순서 |
 | `sitelink` | `site`, `title`(`title_json`), `badges` (사이트 ID 바이트 순 = 덤프 키 순) |
 
 ## 읽기 규칙
@@ -52,7 +53,7 @@ DB 없이 덤프 파일을 바로 읽는 경로에서 각 열을 덤프 JSON의 
 
 ## 적재 도구 확인
 
-`dump.loader`가 wikipgeul(`github.com/geul-org/wikipgeul/cmd/wikipgeul`, 또는 wikipgeul의 옛 이름으로 기록된 경로)가 아니면 실행을 거부한다. wikipgeul는 덤프를 무손실로 저장하므로(덤프 줄 원문 `entity_raw`, 구조화 표가 못 담는 값은 `*_json` 열) 문서 내용은 덤프·wikigeul·GEUL 라이브러리로 정해진다. 다른 적재 도구는 무손실을 알 수 없다.
+`dump.loader`가 wikipgeul(`github.com/geul-org/wikipgeul/cmd/wikipg`, 또는 wikipgeul의 옛 이름으로 기록된 경로)가 아니면 실행을 거부한다. wikipgeul는 덤프를 무손실로 저장하므로(덤프 줄 원문 `entity_raw`, 구조화 표가 못 담는 값은 `*_json` 열) 문서 내용은 덤프·wikigeul·GEUL 라이브러리로 정해진다. 다른 적재 도구는 무손실을 알 수 없다.
 
 ## 출현별 출처 항목 순서
 

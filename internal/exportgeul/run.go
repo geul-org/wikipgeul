@@ -1,13 +1,15 @@
 //ff:func feature=convert type=command control=sequence
-//ff:what Run — wikipgeul export-geul: convert the loaded dump into GEUL documents, as a pack set or as a directory tree with the name index and the report
+//ff:what Run — wikipg export-geul: convert the loaded dump into GEUL documents, as a pack set or as a directory tree with the name index and the report
 package exportgeul
 
 import (
 	"database/sql"
 	"fmt"
+	"os"
 
 	"github.com/geul-org/gogeul/pkg/core"
 	"github.com/geul-org/gogeul/pkg/resolve"
+	"github.com/geul-org/wikigeul/pkg/memguard"
 	"github.com/geul-org/wikigeul/pkg/pipeline"
 	"github.com/lib/pq"
 
@@ -24,7 +26,8 @@ import (
 // ⋈ reference_snak) and JIT-compiles it, about 160 ms per entity against 0.5
 // ms without (2026-10-27). When the schema has reference_snak_order
 // (pgsource.Dump.RefOrder) every reference occurrence keeps its own snak
-// order; the run says which on stdout.
+// order; the run says which on stdout. In pack mode the memory guard watches
+// the run (memguard.Start, the -mem- flags).
 func Run(args []string) error {
 	c, err := parseFlags(args)
 	if err != nil {
@@ -53,6 +56,10 @@ func Run(args []string) error {
 		return err
 	}
 	if c.Out == "pack" {
+		if c.Guard, err = memguard.Start(c.Mem, c.Workers, os.Stdout); err != nil {
+			return err
+		}
+		defer c.Guard.Close()
 		return runPack(c, conn, db, prov)
 	}
 	dir := resolve.Dir{Root: c.Root}

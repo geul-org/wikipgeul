@@ -1,5 +1,5 @@
 //ff:type feature=cli type=model
-//ff:what loadConfig — what wikipgeul runs: database, schema, input, line range, parallelism per stage, kept languages, raw, the dump record
+//ff:what loadConfig — what wikipg runs: database, schema, input, line range, parallelism per stage, kept languages, raw, the dump record
 package main
 
 import (
@@ -8,7 +8,7 @@ import (
 	"github.com/geul-org/wikipgeul/internal/load"
 )
 
-// loadConfig is the parsed command line of wikipgeul: the PostgreSQL DSN
+// loadConfig is the parsed command line of wikipg: the PostgreSQL DSN
 // (empty: PG* variables) and schema, the dump file,
 // the first line to read and how many entity lines at most (0: all), the
 // parallelism of each stage (decompressor threads, parsers, writers) and the

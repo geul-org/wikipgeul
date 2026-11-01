@@ -18,7 +18,7 @@ import (
 // row must say which bytes were loaded.
 func dumpInfoOf(c *loadConfig, date, published string) error {
 	d := &c.Dump
-	d.Loader = "github.com/geul-org/wikipgeul/cmd/wikipgeul"
+	d.Loader = "github.com/geul-org/wikipgeul/cmd/wikipg"
 	d.FileName = filepath.Base(c.In)
 	if date == "" {
 		if m := regexp.MustCompile(`wikidata-(\d{8})-`).FindStringSubmatch(d.FileName); m != nil {
@@ -27,7 +27,7 @@ func dumpInfoOf(c *loadConfig, date, published string) error {
 	}
 	day, err := time.Parse("20060102", date)
 	if err != nil {
-		return fmt.Errorf("wikipgeul: dump date %q: need -dump-date YYYYMMDD", date)
+		return fmt.Errorf("wikipg: dump date %q: need -dump-date YYYYMMDD", date)
 	}
 	d.Date = day
 	if d.URL == "" {
@@ -35,7 +35,7 @@ func dumpInfoOf(c *loadConfig, date, published string) error {
 	}
 	if published != "" {
 		if d.PublishedAt, err = time.Parse(time.RFC3339, published); err != nil {
-			return fmt.Errorf("wikipgeul: -published: %w", err)
+			return fmt.Errorf("wikipg: -published: %w", err)
 		}
 	}
 	st, err := os.Stat(c.In)
@@ -48,7 +48,7 @@ func dumpInfoOf(c *loadConfig, date, published string) error {
 	d.MD5 = readSum(filepath.Join(dir, "wikidata-"+date+"-md5sums.txt"), d.FileName)
 	d.SHA1 = readSum(filepath.Join(dir, "wikidata-"+date+"-sha1sums.txt"), d.FileName)
 	if d.SHA256 == "" {
-		return fmt.Errorf("wikipgeul: no SHA-256 for %s (write it to %s.sha256 with sha256sum)", d.FileName, c.In)
+		return fmt.Errorf("wikipg: no SHA-256 for %s (write it to %s.sha256 with sha256sum)", d.FileName, c.In)
 	}
 	return nil
 }

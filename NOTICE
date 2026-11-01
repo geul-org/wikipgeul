@@ -18,12 +18,12 @@ This product includes software developed by third parties.
 --------------------------------------------------------------------------------
 Go (module: github.com/geul-org/wikipgeul)
 --------------------------------------------------------------------------------
-The following third-party packages are compiled into / linked with the wikipgeul
+The following third-party packages are compiled into / linked with the wikipg
 binary:
 
 * github.com/lib/pq  v1.10.9
     Use:         PostgreSQL driver (internal/load, internal/repair,
-                 internal/exportgeul, cmd/wikipgeul)
+                 internal/exportgeul, cmd/wikipg)
     License:     MIT
     Copyright:   Copyright (c) 2011-2013, 'pq' Contributors
                  Portions Copyright (C) 2011 Blake Mizerany

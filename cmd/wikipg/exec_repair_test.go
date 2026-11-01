@@ -10,7 +10,7 @@ import (
 
 func TestExecRepair(t *testing.T) {
 	_, schema := testSchema(t)
-	f, err := parseRepairFlags("wikipgeul build-reference-order", []string{"-schema", schema, "-workers", "1", "-dry-run"})
+	f, err := parseRepairFlags("wikipg build-reference-order", []string{"-schema", schema, "-workers", "1", "-dry-run"})
 	if err != nil {
 		t.Fatal(err)
 	}

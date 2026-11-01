@@ -10,7 +10,7 @@ import (
 func TestLoadDump(t *testing.T) {
 	db, s := fixtureDB(t)
 	d, err := LoadDump(db, s)
-	if err != nil || !strings.HasSuffix(d.URL, "wikidata-20261019-all.json.bz2") || !strings.HasPrefix(d.SHA256, "a249a19d") || d.DownloadedAt.Unix() != 1792996483 || d.Loader != "github.com/geul-org/wikipgeul/cmd/wikipgeul" || len(d.LoaderCommit) != 40 || d.RefOrder {
+	if err != nil || !strings.HasSuffix(d.URL, "wikidata-20261019-all.json.bz2") || !strings.HasPrefix(d.SHA256, "a249a19d") || d.DownloadedAt.Unix() != 1792996483 || d.Loader != "github.com/geul-org/wikipgeul/cmd/wikipg" || len(d.LoaderCommit) != 40 || d.RefOrder {
 		t.Fatalf("got %+v %v", d, err)
 	}
 	db.Exec("CREATE TABLE " + s.Schema + ".reference_snak_order (statement_id bigint, ordinal smallint, perm smallint[], PRIMARY KEY (statement_id, ordinal))")

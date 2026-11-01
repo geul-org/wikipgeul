@@ -26,13 +26,13 @@ Lexeme은 별도 덤프(`wikidata-YYYYMMDD-lexemes.json.bz2`)라 다른 판 번�
 ## 적재 절차
 
 1. `sql/wikidata.sql`을 실행한다. 1~3절(타입·테이블)만 실행되고 4절은 주석이다. 스키마 이름은 파일 안 `CREATE SCHEMA`·`search_path` 두 줄이 정한다(기본 `wikidata`). 다른 스키마에 넣으려면 그 두 줄을 바꾸고 도구에 `-schema`를 준다.
-2. `wikipgeul`로 덤프를 적재한다. 대량 적재 중에는 색인이 없어 질의가 순차 스캔이다. 적재 중 시험 질의는 하지 않는다.
+2. `wikipg`로 덤프를 적재한다. 대량 적재 중에는 색인이 없어 질의가 순차 스캔이다. 적재 중 시험 질의는 하지 않는다.
 3. 4절을 주석을 풀어 실행한다.
    - 4.0 무손실 열: `value_json`·`title_json` 열이 없던 옛 스키마에만 필요하다.
    - 4.1 재개: 중단 뒤 재개했다면 체크포인트 이후 줄의 행이 일부 커밋됐을 수 있다. `-from-line` 없이 재개하면 도구가 먼저 지운다.
    - 4.2 출처 중복 정리: 적재기는 최근에 본 hash만 기억해 거르므로(`-ref-limit`) 남은 중복을 PK 전에 지운다. `reference_snak`은 hash마다 첫 출현의 행을 통째로 남긴다([reference-snak.md](reference-snak.md)).
    - 4.3 제약과 색인(PK, 색인, FK NOT VALID → VALIDATE, ANALYZE).
-4. 4.4: `wikipgeul build-reference-order`로 출현별 출처 snak 순서를 만든다([reference-snak.md](reference-snak.md)).
+4. 4.4: `wikipg build-reference-order`로 출현별 출처 snak 순서를 만든다([reference-snak.md](reference-snak.md)).
 
 ## 기본 자원 사용
 

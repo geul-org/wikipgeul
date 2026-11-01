@@ -10,7 +10,7 @@ import (
 // Config is one repair run: the schema and dump, the range (lines From..To,
 // To 0 meaning the dump's last line; or, when Kind is set, the entities
 // Kind Lo..Hi, e.g. Q 1..10000), whether it builds reference_snak_order
-// instead of repairing reference_snak (Order: wikipgeul build-reference-order;
+// instead of repairing reference_snak (Order: wikipg build-reference-order;
 // reference_snak is only read), whether it only compares (DryRun), the dump
 // lines per batch, the parallel workers (each one database connection reading
 // and parsing a batch), a pause after each batch per worker (pace), how often

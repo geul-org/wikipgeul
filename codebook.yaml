@@ -2,7 +2,7 @@ required:
   feature:
     dump: "위키데이터 JSON 덤프 읽기 — 줄 다듬기, 개체 디코딩"
     load: "위키데이터 덤프 적재(geuldev.wikidata, sql/wikidata.sql) — 행 구성, COPY, 판·체크포인트 기록"
-    cli: "wikipgeul 명령 실행 — 플래그, 입력 열기, 적재 진행, 하위 명령 분기"
+    cli: "wikipg 명령 실행 — 플래그, 입력 열기, 적재 진행, 하위 명령 분기"
     repair: "적재된 DB 복구와 보강(repair-reference-snak, build-reference-order) — entity_raw 원문과 대조, 출처 snak 목록 교체, 출현별 snak 순서, 체크포인트"
     convert: "적재된 DB → GEUL 변환(export-geul) — DB 읽기, 작업 생성, 출처 기록, 디렉터리 모드와 이름 색인. 변환 자체는 wikigeul pkg/port·pkg/pipeline"
   type:

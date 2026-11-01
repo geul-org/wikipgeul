@@ -1,5 +1,5 @@
 //ff:func feature=cli type=command control=sequence
-//ff:what parseLoadFlags — wikipgeul's command line as a loadConfig; -in and -commit are required, the dump record is filled from the file
+//ff:what parseLoadFlags — wikipg's command line as a loadConfig; -in and -commit are required, the dump record is filled from the file
 package main
 
 import (
@@ -19,7 +19,7 @@ import (
 // extension, bigger batches only add memory). The rest of the dump record
 // comes from the file (dumpInfoOf).
 func parseLoadFlags(args []string) (loadConfig, error) {
-	fs := flag.NewFlagSet("wikipgeul", flag.ContinueOnError)
+	fs := flag.NewFlagSet("wikipg", flag.ContinueOnError)
 	var c loadConfig
 	var langs, date, published string
 	var id int
@@ -49,10 +49,10 @@ func parseLoadFlags(args []string) (loadConfig, error) {
 		return loadConfig{}, err
 	}
 	if c.In == "" || c.Dump.LoaderCommit == "" {
-		return loadConfig{}, errors.New("wikipgeul: -in and -commit are required")
+		return loadConfig{}, errors.New("wikipg: -in and -commit are required")
 	}
 	if id < 1 || id > 255 || c.Status <= 0 || c.Decoders < 1 || c.Parsers < 1 || c.Writers < 1 || c.Batch < 1 || batchMiB < 1 || c.From < 0 || c.Limit < 0 {
-		return loadConfig{}, errors.New("wikipgeul: need -dump-id 1..255, -decoders, -parsers, -writers, -batch and -batch-mib ≥ 1, -from-line and -limit ≥ 0")
+		return loadConfig{}, errors.New("wikipg: need -dump-id 1..255, -decoders, -parsers, -writers, -batch and -batch-mib ≥ 1, -from-line and -limit ≥ 0")
 	}
 	if langs != "all" {
 		c.Langs = strings.Split(strings.ReplaceAll(langs, " ", ""), ",")

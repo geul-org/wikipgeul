@@ -10,13 +10,13 @@ import (
 	"github.com/geul-org/wikipgeul/internal/pgsource"
 )
 
-// wikipgeulPath is the loader that wikipgeul (github.com/geul-org/wikipgeul) records in
-// the dump row. The legacy paths are what it recorded under its earlier names
-// (repository wikiport, command wikiload; the module was .../wikiport/go until
-// 2026-10-27; repository and command wikipg until 2026-11-01); dumps loaded
-// then keep them.
+// wikipgeulPath is the loader that the wikipg command (repository
+// github.com/geul-org/wikipgeul) records in the dump row. The legacy paths are
+// what it recorded under its earlier names (repository wikiport, command
+// wikiload; the module was .../wikiport/go until 2026-10-27; repository wikipg
+// until 2026-11-01); dumps loaded then keep them.
 const (
-	wikipgeulPath      = "github.com/geul-org/wikipgeul/cmd/wikipgeul"
+	wikipgeulPath      = "github.com/geul-org/wikipgeul/cmd/wikipg"
 	legacyWikiloadPath = "github.com/geul-org/wikiport/cmd/wikiload"
 	legacyWikiportPath = "github.com/geul-org/wikiport/go/cmd/wikiload"
 	legacyWikipgPath   = "github.com/geul-org/wikipg/cmd/wikipg"

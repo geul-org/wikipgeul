@@ -4,7 +4,7 @@ package main
 
 import "github.com/geul-org/wikipgeul/internal/repair"
 
-// repairFlags is the command line of wikipgeul repair-reference-snak: the
+// repairFlags is the command line of wikipg repair-reference-snak: the
 // PostgreSQL DSN (empty: PG* variables) and the run (repair.Config).
 type repairFlags struct {
 	DSN    string

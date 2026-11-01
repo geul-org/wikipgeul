@@ -3,7 +3,7 @@
 package pgsource
 
 // Store names one loaded dump (sql/wikidata.sql): the schema that holds the
-// tables (wikipgeul -schema) and the dump_id of the dump within it (wikipgeul
+// tables (wikipg -schema) and the dump_id of the dump within it (wikipg
 // -dump-id). Every query reads that dump only. RefOrder says the schema has
 // reference_snak_order (Dump.RefOrder): the snaks of a reference occurrence
 // are then read in the order it gives for that occurrence, and in

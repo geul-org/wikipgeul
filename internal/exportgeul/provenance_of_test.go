@@ -23,8 +23,10 @@ func TestProvenanceOf(t *testing.T) {
 			t.Fatalf("wikipgeul under its old name %s: %v", old, err)
 		}
 	}
-	d.Loader = "github.com/geul-org/geul-entity/artifacts/wikidata"
-	if _, err := provenanceOf(d, "abc", "def"); err == nil {
-		t.Fatal("other loader: want error")
+	for _, other := range []string{"github.com/geul-org/geul-entity/artifacts/wikidata", "github.com/geul-org/wikipgeul/cmd/wikipgeul"} {
+		d.Loader = other
+		if _, err := provenanceOf(d, "abc", "def"); err == nil {
+			t.Fatalf("loader %s: want error", other)
+		}
 	}
 }

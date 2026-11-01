@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-// parseRepairFlags reads the arguments of wikipgeul repair-reference-snak or
+// parseRepairFlags reads the arguments of wikipg repair-reference-snak or
 // build-reference-order (name, the command shown in usage and errors). The
 // range is -from-line/-to-line (default: the whole dump) or -entities
 // (Q1-Q10000), not both. The defaults keep the machine about 30% free: 70%
@@ -39,14 +39,14 @@ func parseRepairFlags(name string, args []string) (repairFlags, error) {
 		return repairFlags{}, err
 	}
 	if id < 1 || id > 255 || c.Batch < 1 || c.Workers < 1 || c.Status <= 0 || c.Pause < 0 || c.From < 0 || c.To < 0 || c.To != 0 && c.To < c.From {
-		return repairFlags{}, errors.New("wikipgeul: need -dump-id 1..255, -batch, -workers ≥ 1, -status > 0, -pause ≥ 0, 0 ≤ -from-line ≤ -to-line")
+		return repairFlags{}, errors.New("wikipg: need -dump-id 1..255, -batch, -workers ≥ 1, -status > 0, -pause ≥ 0, 0 ≤ -from-line ≤ -to-line")
 	}
 	c.DumpID, c.Log = int16(id), os.Stderr
 	if entities == "" {
 		return f, nil
 	}
 	if c.From != 0 || c.To != 0 {
-		return repairFlags{}, errors.New("wikipgeul: -entities and -from-line/-to-line exclude each other")
+		return repairFlags{}, errors.New("wikipg: -entities and -from-line/-to-line exclude each other")
 	}
 	var err error
 	c.Kind, c.Lo, c.Hi, err = parseEntities(entities)

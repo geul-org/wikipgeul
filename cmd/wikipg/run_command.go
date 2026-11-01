@@ -1,5 +1,5 @@
 //ff:func feature=cli type=command control=selection
-//ff:what runCommand — dispatches wikipgeul's arguments: the repair-reference-snak, build-reference-order or export-geul subcommand, or a load (no subcommand)
+//ff:what runCommand — dispatches wikipg's arguments: the repair-reference-snak, build-reference-order or export-geul subcommand, or a load (no subcommand)
 package main
 
 import "github.com/geul-org/wikipgeul/internal/exportgeul"
