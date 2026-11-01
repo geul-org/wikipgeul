@@ -2,7 +2,7 @@
 //ff:what compareStatementRefs — statement_reference rows that differ between the dump and the database, and the lines they are on
 package repair
 
-import "github.com/geul-org/wikipg/internal/load"
+import "github.com/geul-org/wikipgeul/internal/load"
 
 // compareStatementRefs counts the rows of want (from the dump) and have
 // (stored) that do not match: a key in one only, or the same key with

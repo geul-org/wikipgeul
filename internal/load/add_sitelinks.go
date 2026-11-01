@@ -5,7 +5,7 @@ package load
 import (
 	"github.com/lib/pq"
 
-	"github.com/geul-org/wikipg/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/dump"
 )
 
 // addSitelinks adds a sitelink row for each site of e: site, page title

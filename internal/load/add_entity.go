@@ -2,7 +2,7 @@
 //ff:what Rows.AddEntity — every row one dump entity gives: raw line, head, terms, sitelinks, statements with qualifiers and references, lexeme parts
 package load
 
-import "github.com/geul-org/wikipg/internal/dump"
+import "github.com/geul-org/wikipgeul/internal/dump"
 
 // AddEntity adds the rows of entity e from dump line line (its trimmed JSON
 // raw): the raw line when c.Raw (entity_raw), the head (entity), terms in the

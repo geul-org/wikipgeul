@@ -2,7 +2,7 @@
 //ff:what Rows.addTerms — label, description and alias rows of an entity in the kept languages, aliases in order
 package load
 
-import "github.com/geul-org/wikipg/internal/dump"
+import "github.com/geul-org/wikipgeul/internal/dump"
 
 // addTerms adds the labels, descriptions and aliases of e in the languages c
 // keeps; each alias with its position in its language's list.

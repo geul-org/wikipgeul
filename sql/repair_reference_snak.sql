@@ -1,4 +1,4 @@
--- repair_reference_snak.sql — `wikipg repair-reference-snak`의 작업 표 (쓰기 실행 때 도구가 만든다)
+-- repair_reference_snak.sql — `wikipgeul repair-reference-snak`의 작업 표 (쓰기 실행 때 도구가 만든다)
 --
 -- 2026-10-28. 2026-10-27의 wikidata.sql 4.2 정리가 reference_snak을 번호마다 다른 출현에서 골라
 -- 출처 snak 목록이 섞였다(표본 검증 E1). 복구 도구는 entity_raw를 줄 순서로 읽어 hash마다 첫 출현

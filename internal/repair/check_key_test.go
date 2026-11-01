@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	schemasql "github.com/geul-org/wikipg/sql"
+	schemasql "github.com/geul-org/wikipgeul/sql"
 )
 
 func TestCheckKey(t *testing.T) {

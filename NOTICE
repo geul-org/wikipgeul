@@ -1,4 +1,4 @@
-wikipg
+wikipgeul
 
 Scope of CC0
 ------------
@@ -8,32 +8,66 @@ Universal. LICENSE holds the CC0 1.0 legal text verbatim (unmodified, so that
 it is recognised as CC0-1.0); this section states what it covers.
 
 CC0 covers only our own work. Third-party material keeps its own license and is
-not covered by CC0: Go modules such as lib/pq (MIT). Each component is listed
-below with its license.
+not covered by CC0: Go modules such as lib/pq (MIT) and sfomuseum/go-edtf
+(BSD-3-Clause). Each component is listed below with its license.
 
 ================================================================================
 This product includes software developed by third parties.
 ================================================================================
 
 --------------------------------------------------------------------------------
-Go (module: github.com/geul-org/wikipg)
+Go (module: github.com/geul-org/wikipgeul)
 --------------------------------------------------------------------------------
-The following third-party package is compiled into / linked with the wikipg
+The following third-party packages are compiled into / linked with the wikipgeul
 binary:
 
 * github.com/lib/pq  v1.10.9
-    Use:         PostgreSQL driver (internal/load, cmd/wikipg)
+    Use:         PostgreSQL driver (internal/load, internal/repair,
+                 internal/exportgeul, cmd/wikipgeul)
     License:     MIT
     Copyright:   Copyright (c) 2011-2013, 'pq' Contributors
                  Portions Copyright (C) 2011 Blake Mizerany
     URL:         https://github.com/lib/pq
 
+* github.com/klauspost/compress  v1.20.3
+    Use:         zstd and gzip, through the GEUL library (pack), for export-geul
+    License:     BSD-3-Clause (the module's LICENSE lists the other notices of
+                 its parts)
+    Copyright:   Copyright (c) 2012 The Go Authors, Copyright (c) 2019 Klaus Post
+    URL:         https://github.com/klauspost/compress
+
+* github.com/sfomuseum/go-edtf  v1.3.0
+    Use:         EDTF string validation (wikigeul pkg/port/edtf_valid.go)
+    License:     BSD-3-Clause
+    Copyright:   Copyright (c) 2021, City and County of San Francisco, acting by
+                 and through its Airport Commission ("City"). All rights
+                 reserved.
+    URL:         https://github.com/sfomuseum/go-edtf
+
+* github.com/cacack/gedcom-go/v3  v3.2.0
+    Use:         GEDCOM 7 date value validation, Julian calendar
+                 (wikigeul pkg/port/gedcom_valid.go)
+    License:     MIT
+    Copyright:   Copyright (c) 2025 Chris Clonch
+    URL:         https://github.com/cacack/gedcom-go
+
+It also uses, from the same project (CC0), for export-geul: the conversion code
+github.com/geul-org/wikigeul (pkg/source, pkg/port, pkg/pipeline) and the GEUL
+library github.com/geul-org/gogeul (the pkg/... packages they use).
+
 Binaries also contain the Go standard library (BSD-3-Clause,
 Copyright (c) 2009 The Go Authors), including the golang.org/x packages it
 vendors.
+
+BSD-3-Clause notice (applies to sfomuseum/go-edtf): redistributions in binary
+form must reproduce the above copyright notice, the list of conditions and the
+disclaimer, and the name of the City may not be used to endorse or promote
+products derived from this software without specific prior written permission.
+The full license text is in the module source
+(https://github.com/sfomuseum/go-edtf/blob/main/LICENSE).
 
 --------------------------------------------------------------------------------
 Data
 --------------------------------------------------------------------------------
 Wikidata dumps (https://dumps.wikimedia.org/wikidatawiki/entities/) are
-CC0 1.0.
+CC0 1.0. The documents export-geul writes are CC0.

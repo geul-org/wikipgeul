@@ -6,7 +6,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/geul-org/wikipg/internal/load"
+	"github.com/geul-org/wikipgeul/internal/load"
 )
 
 // drainPending applies (applyFound) and removes the batches of pending from

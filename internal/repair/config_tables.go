@@ -2,7 +2,7 @@
 //ff:what Config.tables — the work tables of the run's mode: their SQL (sql/*.sql) and the checkpoint table's name
 package repair
 
-import schema "github.com/geul-org/wikipg/sql"
+import schema "github.com/geul-org/wikipgeul/sql"
 
 // tables returns the SQL creating the work tables of c's mode and the name
 // of its checkpoint table: reference_snak_order.sql and

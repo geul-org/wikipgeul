@@ -2,7 +2,7 @@
 //ff:what Rows.addLexeme — a lexeme's own rows: lexeme (language, category), lemmas, then each form and sense with their statements continuing the key sequence
 package load
 
-import "github.com/geul-org/wikipg/internal/dump"
+import "github.com/geul-org/wikipgeul/internal/dump"
 
 // addLexeme adds what only a lexeme (lexeme dump) has: the lexeme row with
 // its language and lexical category (item IDs), its lemmas (every language

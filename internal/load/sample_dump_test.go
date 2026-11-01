@@ -10,5 +10,5 @@ func sampleDump() DumpInfo {
 	day := time.Date(2026, 10, 19, 0, 0, 0, 0, time.UTC)
 	return DumpInfo{ID: 1, Date: day, FileName: "wikidata-20261019-all.json.bz2", URL: "https://dumps.wikimedia.org/x", Size: 103488697311,
 		MD5: "cfec", SHA1: "a05b", SHA256: "abcd", PublishedAt: day.Add(50 * time.Hour), DownloadedAt: day.Add(7 * 24 * time.Hour),
-		Loader: "github.com/geul-org/wikipg/cmd/wikipg", LoaderCommit: "test"}
+		Loader: "github.com/geul-org/wikipgeul/cmd/wikipgeul", LoaderCommit: "test"}
 }

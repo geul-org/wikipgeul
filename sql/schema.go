@@ -11,14 +11,14 @@ import _ "embed"
 var Schema string
 
 // RepairReferenceSnak is repair_reference_snak.sql: the work tables of
-// `wikipg repair-reference-snak` (hashes done, checkpoints), created in the
+// `wikipgeul repair-reference-snak` (hashes done, checkpoints), created in the
 // search_path schema.
 //
 //go:embed repair_reference_snak.sql
 var RepairReferenceSnak string
 
 // ReferenceSnakOrder is reference_snak_order.sql: the table of
-// `wikipg build-reference-order` (each reference occurrence whose snak order
+// `wikipgeul build-reference-order` (each reference occurrence whose snak order
 // differs from reference_snak, as a permutation of its ordinals) and its
 // checkpoints, created in the search_path schema.
 //

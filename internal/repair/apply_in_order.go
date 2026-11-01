@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/geul-org/wikipg/internal/load"
+	"github.com/geul-org/wikipgeul/internal/load"
 )
 
 // applyInOrder reads outcomes until the channel closes, keeps each batch

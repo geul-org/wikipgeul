@@ -2,7 +2,7 @@
 //ff:what occ — one occurrence of a reference on a dump line: hash, place, entity and its reference_snak rows as the loader builds them
 package repair
 
-import "github.com/geul-org/wikipg/internal/load"
+import "github.com/geul-org/wikipgeul/internal/load"
 
 // occ is one occurrence of a reference read from entity_raw: its hash, where
 // it occurs (statement key, position in the references), the entity whose

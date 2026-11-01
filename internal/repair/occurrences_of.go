@@ -6,8 +6,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/geul-org/wikipg/internal/dump"
-	"github.com/geul-org/wikipg/internal/load"
+	"github.com/geul-org/wikipgeul/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/load"
 )
 
 // occurrencesOf decodes raw (dump line line) and builds its rows as the loader

@@ -5,7 +5,7 @@ package load
 import (
 	"testing"
 
-	"github.com/geul-org/wikipg/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/dump"
 )
 
 func TestRowsAddForm(t *testing.T) {

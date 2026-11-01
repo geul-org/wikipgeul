@@ -1,4 +1,4 @@
--- reference_snak_order.sql — 출현별 출처 snak 순서 (`wikipg build-reference-order`가 만든다)
+-- reference_snak_order.sql — 출현별 출처 snak 순서 (`wikipgeul build-reference-order`가 만든다)
 --
 -- 2026-10-29. reference_snak은 hash마다 덤프상 첫 출현의 snak 목록 하나만 담는다(wikidata.sql
 -- reference_snak 주석의 출현 규칙). 위키베이스 출처 hash는 snaks-order와 같은 속성 안 값 순서에

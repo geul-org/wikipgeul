@@ -5,7 +5,7 @@ package load
 import (
 	"github.com/lib/pq"
 
-	"github.com/geul-org/wikipg/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/dump"
 )
 
 // addForm adds form f, the ord-th form of lexeme (number num): an entity row

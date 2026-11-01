@@ -5,7 +5,7 @@ package repair
 import (
 	"database/sql"
 
-	"github.com/geul-org/wikipg/internal/load"
+	"github.com/geul-org/wikipgeul/internal/load"
 )
 
 // applyFound applies batch f, whose earlier batches are all applied: the

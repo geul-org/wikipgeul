@@ -2,7 +2,7 @@
 //ff:what Rows.addSense — one lexeme sense: its entity row (type sense), sense row, glosses in the kept languages and statements; the next key number
 package load
 
-import "github.com/geul-org/wikipg/internal/dump"
+import "github.com/geul-org/wikipgeul/internal/dump"
 
 // addSense adds sense s, the ord-th sense of lexeme (number num): an entity
 // row of type sense, the sense row, a gloss per language that c keeps

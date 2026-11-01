@@ -2,7 +2,7 @@
 //ff:what Rows.addReferences — a statement's reference links in order, and each source's snaks with their occurrence when it must be written (RefSet.First)
 package load
 
-import "github.com/geul-org/wikipg/internal/dump"
+import "github.com/geul-org/wikipgeul/internal/dump"
 
 // addReferences links statement sid to each of its references in order
 // (statement_reference). A source whose occurrence refs says to write

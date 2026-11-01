@@ -5,7 +5,7 @@ package load
 import (
 	"encoding/json"
 
-	"github.com/geul-org/wikipg/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/dump"
 )
 
 // sampleLexeme is a small lexeme for tests: L4 (English verb) with a lexeme

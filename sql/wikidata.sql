@@ -32,7 +32,7 @@
 --   | object_type에 datavalue 형식과 datatype이 섞임     | value_type(datavalue.type)과 datatype(snak.datatype) 분리 |
 --
 -- 적재 순서: 이 파일의 1~3절(타입·테이블)을 먼저 실행하고, COPY로 적재한 뒤
--- 4절(정리·제약·색인, 4.1~4.3)을 실행하고, 끝으로 4.4 출현별 출처 snak 순서를 만든다(wikipg
+-- 4절(정리·제약·색인, 4.1~4.3)을 실행하고, 끝으로 4.4 출현별 출처 snak 순서를 만든다(wikipgeul
 -- build-reference-order). 대량 적재 중 색인을 유지하면 수 배 느리다.
 -- 4절을 실행하기 전에는 질의가 전부 순차 스캔이다. 적재 중 시험 질의는 하지 않는다.
 --
@@ -267,7 +267,7 @@ CREATE TABLE statement_reference (
 --      Lexeme은 Lexeme → Form → Sense 순),
 --   3. 그 statement의 references 배열 순서상 첫 번째.
 -- 이 규칙은 DB만으로 다시 계산된다(statement_reference). 순서가 이 표와 다른 출현은
--- reference_snak_order(sql/reference_snak_order.sql, 4.4 `wikipg build-reference-order`)가 출현마다
+-- reference_snak_order(sql/reference_snak_order.sql, 4.4 `wikipgeul build-reference-order`)가 출현마다
 -- 순열(perm: 이 표의 ordinal을 그 출현 순서로)을 둔다. 행이 없는 출현은 이 표의 순서 그대로다. 둘 다
 -- entity_raw에서 다시 만들 수 있다.
 --
@@ -295,9 +295,9 @@ COMMIT;
 
 -- 4. 적재를 마친 뒤 ----------------------------------------------------------
 --
--- 4.0 무손실 열 (2026-10-27 이전 적재분). 그 뒤의 wikipg는 이 열을 채운다. 열 추가는 메타데이터만
+-- 4.0 무손실 열 (2026-10-27 이전 적재분). 그 뒤의 wikipgeul는 이 열을 채운다. 열 추가는 메타데이터만
 --     바꿔 빠르지만 표 잠금이 필요하니 색인 작업이 없을 때 한다. \u0000 값은 load_error(stage value)의
---     줄을 entity_raw에서 읽어 채운다(wikipg를 다시 돌리지 않는다).
+--     줄을 entity_raw에서 읽어 채운다(wikipgeul를 다시 돌리지 않는다).
 --
 -- ALTER TABLE wikidata.statement           ADD COLUMN value_json text;
 -- ALTER TABLE wikidata.qualifier           ADD COLUMN value_json text;
@@ -318,7 +318,7 @@ COMMIT;
 --     reference_snak은 hash마다 **출현 하나를 통째로** 고른다: (occ_statement_id, occ_ordinal)이
 --     가장 작은 출현(위 reference_snak 주석의 출현 규칙)의 행 전부. 2026-10-27 실행분은 번호마다
 --     따로 고르는 DISTINCT ON (hash, dump_id, ordinal)이라 출현이 섞였다(표본 검증 E1). 그 DB는
---     `wikipg repair-reference-snak`으로 고친다(README). 고른 출현 안의 DISTINCT ON은 재개 등으로
+--     `wikipgeul repair-reference-snak`으로 고친다(README). 고른 출현 안의 DISTINCT ON은 재개 등으로
 --     같은 출현이 두 번 들어간 경우만 거른다.
 --
 -- BEGIN;
@@ -459,6 +459,6 @@ COMMIT;
 -- (sql/reference_snak_order.sql). 적재기 안에서 만들지 않는 이유: 출현이 첫 출현인지는 4.2를 마쳐야
 -- 정해지고, 적재 중에 모든 출현의 순서를 남기려면 statement_reference 규모(13억 행)의 스테이징이 든다.
 --
---   wikipg build-reference-order -dry-run -entities Q1-Q10000   # 세기만(읽기 전용 세션)
---   wikipg build-reference-order                                # 전 구간 쓰기, 중단 뒤 같은 명령으로 재개
+--   wikipgeul build-reference-order -dry-run -entities Q1-Q10000   # 세기만(읽기 전용 세션)
+--   wikipgeul build-reference-order                                # 전 구간 쓰기, 중단 뒤 같은 명령으로 재개
 --   ANALYZE wikidata.reference_snak_order;

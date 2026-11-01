@@ -2,7 +2,7 @@
 //ff:what freshHashes — the hash checks of a batch not already handled in this run at an earlier occurrence (and remembers them)
 package repair
 
-import "github.com/geul-org/wikipg/internal/load"
+import "github.com/geul-org/wikipgeul/internal/load"
 
 // freshHashes returns the checks of f whose hash this run has not handled at
 // an earlier or the same occurrence (load.RefSet.First), remembering them.

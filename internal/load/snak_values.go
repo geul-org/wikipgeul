@@ -5,7 +5,7 @@ package load
 import (
 	"bytes"
 
-	"github.com/geul-org/wikipg/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/dump"
 )
 
 // snakValues returns the snak columns (snaktype, datatype, value_type,

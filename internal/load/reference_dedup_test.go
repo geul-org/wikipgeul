@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/geul-org/wikipg/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/dump"
 )
 
 func TestReferenceDedup(t *testing.T) {

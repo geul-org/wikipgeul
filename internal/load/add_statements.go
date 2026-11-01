@@ -5,7 +5,7 @@ package load
 import (
 	"slices"
 
-	"github.com/geul-org/wikipg/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/dump"
 )
 
 // addStatements adds the statements claims of id (an entity, or a lexeme's

@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/geul-org/wikipg/internal/load"
+	"github.com/geul-org/wikipgeul/internal/load"
 )
 
 func TestStatsAddOrder(t *testing.T) {

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/geul-org/wikipg/internal/load"
+	"github.com/geul-org/wikipgeul/internal/load"
 )
 
 func TestOccurrencesOf(t *testing.T) {

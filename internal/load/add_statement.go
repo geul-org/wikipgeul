@@ -2,7 +2,7 @@
 //ff:what Rows.addStatement — one statement row, its qualifiers in dump order and its references
 package load
 
-import "github.com/geul-org/wikipg/internal/dump"
+import "github.com/geul-org/wikipgeul/internal/dump"
 
 // addStatement adds statement s of entity id as key sid at ordinal ord: the
 // statement row (main snak columns by snakValues), a qualifier row per

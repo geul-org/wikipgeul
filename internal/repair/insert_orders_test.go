@@ -5,7 +5,7 @@ package repair
 import (
 	"testing"
 
-	"github.com/geul-org/wikipg/internal/load"
+	"github.com/geul-org/wikipgeul/internal/load"
 )
 
 func TestInsertOrders(t *testing.T) {

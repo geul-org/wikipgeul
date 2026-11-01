@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/geul-org/wikipg/internal/load"
+	"github.com/geul-org/wikipgeul/internal/load"
 )
 
 func TestJudge(t *testing.T) {

@@ -2,7 +2,7 @@
 //ff:what filterDone — the checks to process: those not done, or done only at a later occurrence; and how many were skipped
 package repair
 
-import "github.com/geul-org/wikipg/internal/load"
+import "github.com/geul-org/wikipgeul/internal/load"
 
 // filterDone returns the checks whose hash is not in done or was done at a
 // later occurrence than the check's (an earlier range run after a later

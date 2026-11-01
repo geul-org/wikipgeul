@@ -5,7 +5,7 @@ package load
 import (
 	"encoding/json"
 
-	"github.com/geul-org/wikipg/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/dump"
 )
 
 // sampleEntity returns item Q42 as DecodeEntity gives it: labels and

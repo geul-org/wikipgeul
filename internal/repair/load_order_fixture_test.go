@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/geul-org/wikipg/internal/dump"
-	"github.com/geul-org/wikipg/internal/load"
+	"github.com/geul-org/wikipgeul/internal/dump"
+	"github.com/geul-org/wikipgeul/internal/load"
 )
 
 // loadOrderFixture loads testdata/fixture.jsonl (Q1, Q2, Q3 on lines 2–4)

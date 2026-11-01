@@ -2,7 +2,7 @@
 //ff:what ReferenceSnaks — the reference_snak rows of one occurrence of a source: its snaks in the order this occurrence gives (snaks-order)
 package load
 
-import "github.com/geul-org/wikipg/internal/dump"
+import "github.com/geul-org/wikipgeul/internal/dump"
 
 // ReferenceSnaks returns the reference_snak rows of ref as it occurs in one
 // statement: hash, dump_id, ordinal, property, value_ordinal and the snak
