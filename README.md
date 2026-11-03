@@ -1,5 +1,7 @@
 # wikipgeul
 
+> **Deprecated.** This tool is no longer used. Converting a Wikidata dump directly with [wikigeul](https://github.com/geul-org/wikigeul) is about as fast as going through PostgreSQL, so use wikigeul instead.
+
 `wikipg` loads a Wikidata JSON dump into PostgreSQL without losing anything. Entities, labels, descriptions, aliases, claims, qualifiers, references, sitelinks and Lexemes are stored in dump order. Every dump line is also kept verbatim, and the dump itself (file, URL, size, checksums, loader commit) is recorded in a `dump` row.
 
 `wikipg export-geul` converts the loaded database into [GEUL](https://geul.org/) documents with the conversion code of [wikigeul](https://github.com/geul-org/wikigeul). wikigeul itself reads the dump file directly and needs no database; both give the same document bytes. Loading does not depend on GEUL: only the `export-geul` subcommand does.
